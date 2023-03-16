@@ -29,7 +29,7 @@ Route::prefix('Api')->group(function () {
 Route::prefix('products')->group(function () {
     Route::get('/', \App\Http\Controllers\Produto\IndexProdutoController::class);
     Route::post('/',  \App\Http\Controllers\Produto\StoreProdutoController::class);
-    // Route::get('/{id}', \App\Http\Controllers\Produto\ShowProdutoController::class);
+    Route::get('/{id}', \App\Http\Controllers\Produto\ShowProdutoController::class);
     // Route::put('/{id}', \App\Http\Controllers\Produto\UpdateProdutoController::class);
     // Route::delete('/{id}', \App\Http\Controllers\Produto\DestroyProdutoController::class);
 });
