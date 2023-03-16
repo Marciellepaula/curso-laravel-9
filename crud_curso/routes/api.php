@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +24,10 @@ Route::prefix('Api')->group(function () {
 
 
 
+
+
 Route::prefix('products')->group(function () {
-    // Route::get('/', \App\Http\Controllers\Producto\IndexProdutoController::class);
+    Route::get('/', \App\Http\Controllers\Produto\IndexProdutoController::class);
     Route::post('/',  \App\Http\Controllers\Produto\StoreProdutoController::class);
     // Route::get('/{id}', \App\Http\Controllers\Produto\ShowProdutoController::class);
     // Route::put('/{id}', \App\Http\Controllers\Produto\UpdateProdutoController::class);
