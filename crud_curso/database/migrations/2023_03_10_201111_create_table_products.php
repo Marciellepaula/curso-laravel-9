@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->text('description');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

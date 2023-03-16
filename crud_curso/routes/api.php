@@ -15,11 +15,19 @@ use App\Http\App\Http\Controllers\ProductController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
 Route::prefix('Api')->group(function () {
     Route::get('/', 'ProductController@index');
+});
+
+
+
+
+Route::prefix('products')->group(function () {
+    // Route::get('/', \App\Http\Controllers\Producto\IndexProdutoController::class);
+    Route::post('/',  \App\Http\Controllers\Produto\StoreProdutoController::class);
+    // Route::get('/{id}', \App\Http\Controllers\Produto\ShowProdutoController::class);
+    // Route::put('/{id}', \App\Http\Controllers\Produto\UpdateProdutoController::class);
+    // Route::delete('/{id}', \App\Http\Controllers\Produto\DestroyProdutoController::class);
 });

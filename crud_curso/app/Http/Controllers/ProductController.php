@@ -13,15 +13,8 @@ class ProductController extends Controller
     public function index()
     {
         $products  = Product::all();
-        return response()->json($products); // cabeçalho correto
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return response()->json($products); // cabeçalho correto
     }
 
     /**
@@ -34,18 +27,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
