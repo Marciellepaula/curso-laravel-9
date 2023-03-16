@@ -15,7 +15,7 @@ class UpdateProdutoController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'price' => ['required', 'numeric', 'min:2', 'max:100'],
-            'description' => ['required', 'string', '100']
+            'description' => ['required', 'string', 'max:100']
         ]);
 
 
@@ -27,9 +27,9 @@ class UpdateProdutoController extends Controller
         }
 
         $producto->fill([
-            'name' => $request->input(),
-            'price' => $request->input(),
-            'description' => $request->input(),
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
 
         ]);
 

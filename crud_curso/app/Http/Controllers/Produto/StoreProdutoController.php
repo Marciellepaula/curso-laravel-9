@@ -13,7 +13,7 @@ class StoreProdutoController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'numeric', 'min:0', 'max:100'],
+            'price' => ['required', 'numeric', 'min:2', 'max:100'],
             'description' => ['required', 'string', 'max:140']
 
         ]);

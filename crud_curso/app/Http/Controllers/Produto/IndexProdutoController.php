@@ -16,9 +16,17 @@ class IndexProdutoController extends Controller
     function  __invoke(Request $request): JsonResponse
     {
 
-        $query = Product::query()->select('name', 'price');
+        $query = Product::query();
 
-        $products = $query->get(); // retrieve all matching products
+
+        $query->when($request->has('search'), function ($query) use ($request) {
+            $query->where('name', 'like', '%' . $request->query('search') . '%');
+        });
+
+
+        $products = $query
+            ->paginate($request->query('per_page', 10))
+            ->withQueryString();
 
         return $this->respondWithPaginate($products);
     }
