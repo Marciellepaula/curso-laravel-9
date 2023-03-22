@@ -19,8 +19,8 @@ class UpdateProdutoController extends Controller
         ]);
 
 
-        $producto = Product::query()->where('id', $id)->first();
-
+        //$producto = Product::query()->where('id', $id)->first();
+        $producto = Product::query()->findOrFail($id);
 
         if (!$producto) {
             return $this->respondWithError('Campaign not found');

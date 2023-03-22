@@ -13,14 +13,14 @@ class StoreProdutoController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'numeric', 'min:2', 'max:100'],
+            'price' => ['required', 'numeric', 'min:2', 'max:100'],   // valida 1
             'description' => ['required', 'string', 'max:140']
 
         ]);
 
         $product = Product::create([
             'name' => $request->input('name'),
-            'price' => $request->input('price'),
+            'price' => $request->input('price'),              // criar
             'description' => $request->input('description')
         ]);
 
@@ -29,7 +29,7 @@ class StoreProdutoController extends Controller
         }
 
         return $this->respondWithSuccess(
-            [
+            [                             // responder
                 'product' => $product
             ],
             'Produto created successfully',
